@@ -3,9 +3,17 @@
 <head>
   <title><%= full_title(yield(:title)) %></title>
   <%= csrf_meta_tags %>
-  <%#= csp_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_importmap_tags %>
+  <%#= render 'layouts/shim' %> <!-- Render partial shim -->
 </head>
 <body>
-  <%= yield %>
+  <%= render 'layouts/header' %> <!-- Render partial header -->
+
+  <div class="container">
+    <%= yield %>
+    <%= render 'layouts/footer' %> <!-- Render partial footer -->
+  </div>
 </body>
 </html>
